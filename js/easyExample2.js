@@ -1,10 +1,8 @@
-const VF = Vex.Flow;
-
 // Create a VexFlow renderer attaced to the DIV element "boo"
-var vf = new VF.Factory({renderer: {
-  elementId: 'boo', height: 280 }});
-var score = vf.EasyScore();
-var system = vf.System();
+const renderer = new Vex.Flow.Factory({renderer: {
+  elementId: 'VexFlowDiv', height: 280 }});
+const score = renderer.EasyScore();
+const system = renderer.System();
 
 // Create a 4/4 treble stave, and add two parallel voices
 system.addStave({
@@ -20,16 +18,6 @@ system.addStave({
     )
   ]
 }).addClef('treble').addTimeSignature('4/4').addKeySignature("Eb");
-
-/*
-system.addStave({
-  voices: [
-    score.voice(
-    	score.notes('E3/w', {stem: 'up'})
-    )
-  ]
-}).addClef('bass').addTimeSignature('4/4').addKeySignature("Eb");
-*/
 
 system.addStave({
   voices: [
@@ -47,4 +35,4 @@ system.addConnector()
 
 
 // Draw it!
-vf.draw();
+renderer.draw();
